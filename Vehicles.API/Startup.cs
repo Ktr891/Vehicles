@@ -25,8 +25,6 @@ namespace Vehicles.API
             services.AddControllersWithViews();
             services.AddIdentity<User, IdentityRole>(x =>
             {
-                x.Tokens.AuthenticatorTokenProvider = TokenOptions.DefaultAuthenticatorProvider;
-                x.SignIn.RequireConfirmedEmail = true;
                 x.User.RequireUniqueEmail = true;
                 x.Password.RequireDigit = false;
                 x.Password.RequiredUniqueChars = 0;
