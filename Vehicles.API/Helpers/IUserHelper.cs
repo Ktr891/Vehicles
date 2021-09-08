@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Threading.Tasks;
 using Vehicles.API.Data.Entities;
 using Vehicles.API.Models;
@@ -8,6 +9,7 @@ namespace Vehicles.API.Helpers
     public interface IUserHelper
     {
         Task<User> GetUserAsync(string email);
+        Task<User> GetUserAsync(Guid id);
 
         Task<IdentityResult> AddUserAsync(User user, string password);
 
@@ -20,5 +22,9 @@ namespace Vehicles.API.Helpers
         Task<SignInResult> LoginAsync(LoginViewModel model);
 
         Task LogoutAsync();
+
+        Task<IdentityResult> UpdateUserAsync(User user);
+
+        Task<IdentityResult> DeleteUserAsync(User user);
     }
 }
